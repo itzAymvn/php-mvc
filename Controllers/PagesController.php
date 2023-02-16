@@ -40,6 +40,18 @@ class PagesController
         }
     }
 
+    public function profile()
+    {
+        // check if the user is logged in
+        if (isset($_SESSION['user'])) {
+            // show the profile page
+            require_once('./views/Profile.php');
+        } else {
+            // redirect to login
+            header('Location: ./login');
+        }
+    }
+
     public function logout()
     {
         session_destroy();
